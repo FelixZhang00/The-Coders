@@ -1,0 +1,11 @@
+.button {
+  margin: .4em;
+  padding: .3em;
+  cursor: pointer;
+  background: #F7D358;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid yellow;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

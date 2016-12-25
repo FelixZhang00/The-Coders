@@ -1,0 +1,19 @@
+<section class="<%= item.layout %>" itemscope itemprop="blogPost">
+  <% if (item.link) { %> 
+    <a rel="pulse-grow" class="pulse-grow" href="<%- item.link %>" target="_blank"> 
+  <% } else{ %>
+    <a rel="sink" class="sink" href="<%- config.root %><%- item.path %>" title="<%= item.title %>" itemprop="url">
+  <% } %>
+    <h1 itemprop="name"><%= item.title %></h1>
+    <% if (desc){ %>
+     <% if(item.description){ %>
+      <p rel="wobble-skew" class="wobble-skew" itemprop="description" ><%- item.description %></p>
+      <% } else if(item.excerpt){ %>
+       <p rel="wobble-bottom" class="wobble-bottom" itemprop="description" ><%= strip_html(item.excerpt).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+      <% } else {%>
+           <p rel="wobble-bottom" class="wobble-bottom" itemprop="description" ><%= strip_html(item.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+        <% } %>
+    <% } %>
+    <time datetime="<%= date_xml(item.date) %>" itemprop="datePublished"><%= item.date.format(config.date_format) %></time>
+  </a>
+</section>

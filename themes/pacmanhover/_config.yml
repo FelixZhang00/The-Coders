@@ -1,7 +1,9 @@
 ##### Menu
 menu:
   Home: /
-  Archives: /archives
+  Menu: /archives
+  Index: /tags
+  About: /about
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
 ## set `front-matter`as
@@ -12,29 +14,24 @@ menu:
 #### Widgets
 widgets: 
 - category
+- blogroll
 - tag
-- rss 
-## provide six widgets:category,tag,rss,archive,tagcloud,links.
-## modify links in `/layout/_widget/links.ejs`.
+- rss
+- archive
+- tagcloud
+## provide six widgets:category,blogroll,tag,rss,archive,tagcloud.
+## modify links in `/layout/_widget/blogroll.ejs`.
+## 在http://app.weibo.com/tool/weiboshow有新浪微博的代码
 
 #### RSS
-rss: /atom.xml ## RSS address.
-
-
-# Reading experience
-# markdown available value:
-#     Material | Github | Plain
-reading:
-    markdown: Github
-    entry_excerpt: 80
-    code_highlight: solarized-dark ##dark ##tomorrow ##solarized-white
+rss: ## RSS address.
 
 #### Image
 imglogo:
   enable: true             ## display image logo true/false.
-  src: img/logo.svg        ## `.svg` and `.png` are recommended,please put image into the theme folder `/pacman/source/img`.
+  src: img/pacman.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/pacman/source/img`.
 favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/pacman/source/img`.     
-apple_icon: img/pacman.jpg ##img/author.jpg  ## size:114px*114px,please put image into the theme folder `/pacman/source/img`.
+apple_icon: img/pacman.jpg ## size:114px*114px,please put image into the theme folder `/pacman/source/img`.
 
 #### Author Avatar Picture
 author_img_enable: true ## display author avatar picture
@@ -58,7 +55,7 @@ toc:
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
 
 #### Fancybox
-fancybox: false 
+fancybox: true 
 ## if you use gallery post or want use fancybox please set the value to true.
 ## if you want use fancybox in ANY post please copy the file `fancybox.js`.
 ## in theme folder `/pacman/scripts` to your hexo blog folder `../scritps`.
@@ -66,42 +63,29 @@ fancybox: false
 #### Author information
 author:
   google_plus:    ## eg:116338260303228776998 for https://plus.google.com/u/0/116338260303228776998
-  intro_line1: "Happy coding." ## eg: "Hello ,I'm Larry Page in Google."
-  intro_line2: "Enjoy life." ## eg: "This is my blog,believe it or not."
-  weibo:       ## e.g. 436062867 for http://weibo.com/436062867
-  twitter:    ## e.g. yangjiansky for https://twitter.com/yangjiansky
-  github:     ## e.g. A-limon for https://github.com/A-limon
-  facebook:  ## e.g. yangjian for https://favebook.com/yangjian
-  tsina:      ## e.g. 1664838973  Your weibo ID,It will be used in share button.
-  linkedin:   ## e.g. in/jeffweiner08 for https://www.linkedin.com/in/jeffweiner08
+  intro_line1:    ## eg: "Hello ,I'm Larry Page in Google."
+  intro_line2:    ## eg: "This is my blog,believe it or not."
+  weibo:    ## e.g. 1790238327 for http://weibo.com/1790238327
+  twitter:    ## e.g. yang for https://twitter.com/yangjiansky
+  github:    ## e.g. uruir for https://github.com/uruir
+  facebook:    
+  tsina:    ## e.g. 1790238327  Your weibo ID,It will be used in share button.
 
 #### Comment
 duoshuo: 
-  enable: false  ## duoshuo.com
-  short_name:  ## duoshuo short name.
+  enable: true  ## duoshuo.com
+  short_name:    ## e.g. uruir for duoshuo short
 
 #### Share button
 jiathis:
   enable: false ## if you use jiathis as your share tool,the built-in share tool won't be display.
   id:    ## e.g. 1501277 your jiathis ID. 
-  tsina: ## e.g. 1664838973 Your weibo id,It will be used in share button.
+  tsina: ## e.g. 1790238327 Your weibo id,It will be used in share button.
 
 #### Analytics
 google_analytics:
   enable: false
   id:   ## e.g. UA-1766729-8 your google analytics ID.
-  site: ## e.g. yangjian.me your google analytics site or set the value as auto.
+  site: ## e.g. turuir.cn your google analytics site or set the value as auto.
 ## You MUST upgrade to Universal Analytics first!
 ## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
-
-#### Custom Search
-google_cse: 
-  enable: false
-  cx:  ## e.g. 000561263943549425496:mrzrm0gr4kg your Custom Search ID
-## https://www.google.com/cse/ 
-## To enable the custom search You must create a "search" folder in '/source' and a "index.md" file
-## set the 'front-matter' as
-## layout: search 
-## title: search
-## ---
-

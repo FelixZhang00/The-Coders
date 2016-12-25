@@ -1,0 +1,21 @@
+<div>
+		<% if	(theme.imglogo.enable&&theme.imglogo.src){ %>
+			<div id="imglogo">
+				<a rel="pulse" class="pulse" href="<%- config.root %>"><img src="<%- config.root %><%= theme.imglogo.src %>" alt="<%= config.title %>" title="<%= config.title %>"/></a>
+			</div>
+			<% } %>
+			<div id="textlogo">
+				<h1 class="site-name"><a rel="hover" class="hover" href="<%- config.root %>" title="<%= config.title %>"><%= config.title %></a></h1>
+				<h2 class="blog-motto"><% if (config.subtitle){ %><a rel="wobble-to-bottom-right" class="wobble-to-bottom-right" href="#" title="#"><%= config.subtitle %><% } %></a></h2>
+			</div>
+			<div class="navbar"><a rel="buzz" class="buzz" href="#" title="<%= __('menu') %>">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 <% for (var i in theme.menu){ %>
+						<li><a rel="wobble-top" class="wobble-top" href="<%- theme.menu[i] %>"><%= i %></a></li>
+					<% } %>
+				</ul>
+			</nav>			
+</div>
