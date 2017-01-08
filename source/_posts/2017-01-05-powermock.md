@@ -1,5 +1,5 @@
 ---
-title: 【2017-01-05-powermock】.md
+title: 【2017-01-05-powermock】
 date: 2017-01-05 01:33:50
 tags: Java
 ---
