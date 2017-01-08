@@ -30,4 +30,4 @@ date: 2016-12-28 13:08:17
 ![](/images/2016/12/28/Postman-pre-request-script-01.png)
 </center>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此时，在用`{{token}}`这样的环境变量形式(和上面提到的一样)，就可以了。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此时，在用`{ { token } }`这样的环境变量形式(和上面提到的一样)，就可以了。
