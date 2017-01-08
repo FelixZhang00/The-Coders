@@ -74,5 +74,6 @@ field: post
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git 
-  repository: https://github.com/The-Coderz/The-Coderz.github.io.git
+#repository: https://github.com/The-Coderz/The-Coderz.github.io.git
+  repository: git@github.com:The-Coderz/The-Coderz.github.io.git
   branch: master 
