@@ -184,7 +184,7 @@ public class UserServiceTest {
 ### 测试结果
 
 <center>
-![PowerMock运行结果](/images/2017/01/08/PowerMock运行结果.png)
+![PowerMock运行结果](/images/2017/01/08/powermock运行结果.png)
 </center>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照代码中的逻辑，如果没被mock，则会抛出异常。
