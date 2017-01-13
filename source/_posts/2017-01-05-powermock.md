@@ -111,9 +111,8 @@ public class UserUtil {
 #### 测试类
 
 ```java
-package com.van.test;
+package com.van;
 
-import com.van.UserDAO;
 import com.van.service.UserService;
 import com.van.service.impl.UserServiceImpl;
 import com.van.util.UserUtil;
@@ -122,6 +121,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -139,7 +140,7 @@ public class UserServiceTest {
     private static final Long EXPECTED_LONG = -1L;
 
     @Mock                           // mock 一个UserDAO类
-    private UserDAO uerDAO;
+    private UserDAO userDAO;
 
     @Mock
     private File mockFile;
@@ -171,6 +172,28 @@ public class UserServiceTest {
          * mock static method, the private method mock is the same
          */
         PowerMockito.doNothing().when(UserUtil.class, "theStaticMethod");
+        /**
+         * 对于DO对象,基本上在insert数据库后会填写该DO主键,有时候业务逻辑需要这个主键,
+         * 这时候,可以使用doAnswer来获取mock方法的入参,来设置id
+         *
+         * 注意,这里不能写成
+         * doAnswer(new Answer(){...}).when(mockObject.mockMethod);
+         * 需要改为:
+         *  ||          ||          ||          ||          ||
+         *  VV          VV          VV          VV          VV
+         *  doAnswer(new Answer(){...}).when(mockObject).mockMethod();
+         *  when中的方法必须拿出来,否则会报:mock的方法没有return值
+         */
+        Mockito.doAnswer(new Answer() {
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                for (Object arg : invocation.getArguments()) {
+                    if (arg instanceof String) {
+                        arg += "something";
+                    }
+                }
+                return "origin method expect return value : like thenReturn()";
+            }
+        }).when(userDAO).saveUser(Mockito.anyString(), Mockito.anyInt());
     }
 
     @Test
@@ -178,6 +201,7 @@ public class UserServiceTest {
         Assert.assertEquals(EXPECTED_STRING, userService.thePublicMethod());
     }
 }
+
 ```
 ---
 
